@@ -1,4 +1,6 @@
-﻿using NUnit.Framework;
+﻿using Allure.Commons;
+using NUnit.Framework;
+using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
@@ -36,6 +38,16 @@ namespace Ahasoft_Autionmation.Ahasoft_Autionmation.Source.Common
         [TearDown]
         public void TearDown()
         {
+            if (TestContext.CurrentContext.Result.Outcome != ResultState.Success)
+            {
+                byte[] content = ((ITakesScreenshot)_driver).GetScreenshot().AsByteArray;
+                AllureLifecycle.Instance.AddAttachment("Failed Screenshot", "image/png", content);
+            }
+            else 
+            {
+                byte[] content = ((ITakesScreenshot)_driver).GetScreenshot().AsByteArray;
+                AllureLifecycle.Instance.AddAttachment("Passed Screenshot", "image/png", content);
+            }
             Thread.Sleep(2000);
             _driver.Quit();
         }

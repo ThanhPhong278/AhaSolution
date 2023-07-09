@@ -1,4 +1,5 @@
 ﻿using Ahasoft_Autionmation.Ahasoft_Autionmation.Source.Common;
+using AutoTest_Aha_UI.LoginHelper;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
@@ -14,10 +15,10 @@ namespace Ahasoft_Autionmation.Source.Pages
 {
     public class HomePage : TestBase
     {
-        [FindsBy(How = How.XPath, Using = "html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[3]/dl[1]/dd[3]/div[1]/div[2]/button[1]")]
+        [FindsBy(How = How.XPath, Using = "/html[1]/body[1]/div[1]/div[1]/header[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/button[1]")] 
         private IWebElement _buttonSignOut;
 
-        [FindsBy(How = How.XPath, Using = "/html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[3]/dl[1]/dd[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]")]
+        [FindsBy(How = How.XPath, Using = "/html[1]/body[1]/div[1]/div[1]/header[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]")]
         private IWebElement _confirmAlertSignOut;
 
         [FindsBy(How = How.XPath, Using = "/html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[3]/dl[1]/dd[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/button[2]")]
@@ -37,8 +38,10 @@ namespace Ahasoft_Autionmation.Source.Pages
         {
             //LoginPage loginPage = new LoginPage();
             //loginPage.Login(/*"vpsalon1", "abcd@1234"*/);
-            _buttonSignOut.Click();
-            _confirmAlertSignOut.Click();
+            LoginPage loginPage = new LoginPage();
+            loginPage.Login();
+/*            _buttonSignOut.Click();
+            _confirmAlertSignOut.Click();*/
             DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(_driver);
             fluentWait.Timeout = TimeSpan.FromSeconds(5);
 
@@ -51,8 +54,6 @@ namespace Ahasoft_Autionmation.Source.Pages
             //ComposeButton.Click();
 
             fluentWait.Until(ExpectedConditions.ElementToBeClickable(_confirmAlertSignOut)).Click();
-
-
         }
 
         public void CancelSignOut()
