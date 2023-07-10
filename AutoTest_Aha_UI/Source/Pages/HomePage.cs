@@ -21,7 +21,7 @@ namespace Ahasoft_Autionmation.Source.Pages
         [FindsBy(How = How.XPath, Using = "/html[1]/body[1]/div[1]/div[1]/header[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]")]
         private IWebElement _confirmAlertSignOut;
 
-        [FindsBy(How = How.XPath, Using = "/html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[3]/dl[1]/dd[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/button[2]")]
+        [FindsBy(How = How.XPath, Using = "/html[1]/body[1]/div[1]/div[1]/header[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/button[2]")]
         private IWebElement _cancelAlertSignOut;
 
         public string _modalSignOut = "/html[1]/body[1]/div[1]/div[1]/header[1]/div[2]/div[1]/div[3]/dl[1]/dd[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]";
@@ -59,7 +59,7 @@ namespace Ahasoft_Autionmation.Source.Pages
         public void CancelSignOut()
         {
             LoginPage loginPage = new LoginPage();
-            loginPage.Login(/*"vpsalon1", "abcd@1234"*/);
+            loginPage.Login();
 
             WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromMilliseconds(250));
             //_buttonSignOut.Click();

@@ -23,7 +23,7 @@ namespace Ahasoft_Autionmation.Testcase
     {
         private string urlHomepage = "https://ahasoft-ui-salon-admin-staging.azurewebsites.net/#/";
         private string ExpectConfirmAlert = "아하소프트 플러스 로그인";
-        private string ExpectCancelAlert = "a";
+        private string ExpectCancelAlert = "img";
 
         [Test(Description = "SignOut when clicking Conform button on SignOut modal")]
         [AllureStory("Confirm signout")]
@@ -37,12 +37,24 @@ namespace Ahasoft_Autionmation.Testcase
 
             HomePage homepage = new HomePage();
             LoginPage loginPage = new LoginPage();
-
             SessionManager session = SessionManager.Instance;
             session.SetCredentials("vpsalon1", "abcd@1234");
             _driver.Navigate().GoToUrl(urlHomepage);
             homepage.ConfirmSignOut();
             Assert.AreEqual(ExpectConfirmAlert, loginPage.titleLoginPage.Text);
+        }
+
+        [Test(Description = "SignOut when clicking Cancel button on SignOut modal")]
+        [AllureStory("Cancel signout")]
+        public void CancelSignOut()
+        {
+            HomePage homePage = new HomePage();
+            LoginPage loginPage = new LoginPage();
+            SessionManager session = SessionManager.Instance;
+            session.SetCredentials("vpsalon1", "abcd@1234");
+            _driver.Navigate().GoToUrl(urlHomepage);
+            homePage.CancelSignOut();
+            Assert.AreEqual(ExpectCancelAlert, loginPage._tagNameLogo.TagName);
         }
     }
 }

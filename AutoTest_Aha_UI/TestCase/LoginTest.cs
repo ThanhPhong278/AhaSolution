@@ -36,6 +36,7 @@ namespace Ahasoft_Autionmation.Testcase
             session.SetCredentials("vpsalon1", "abcd@1234");
             _driver.Navigate().GoToUrl(urlLoginpage);
             loginPage.Login();
+            Assert.AreEqual(Expect, loginPage._tagNameLogo.TagName);
         }
     }
 }
