@@ -1,0 +1,7 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Sun Jul 16 13:05:17 ICT 2023","Sun Jul 16 13:05:29 ICT 2023","11926","","SignOut Feature","","SignOutTest","CancelSignOut","CancelSignOut","SignOut when clicking Cancel button on SignOut modal
+"
+"passed","Sun Jul 16 13:04:58 ICT 2023","Sun Jul 16 13:05:17 ICT 2023","18440","","Login Feature","","LoginTest","testLogin","testLogin","Login with valid username and password
+"
+"passed","Sun Jul 16 13:05:29 ICT 2023","Sun Jul 16 13:05:42 ICT 2023","13171","","SignOut Feature","","SignOutTest","ConfirmSignOut","ConfirmSignOut","SignOut when clicking Conform button on SignOut modal
+"
